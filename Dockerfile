@@ -2,5 +2,12 @@ FROM node:12.6.0
 
 EXPOSE 8080
 
+ENV wd ./src
 
-COMMAND ["node", "index.js"]
+ADD ./src $wd
+
+WORKDIR ${wd}
+
+RUN npm install
+
+CMD ["node", "index.js"]
